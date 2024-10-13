@@ -1,6 +1,19 @@
-# ides
-.idea
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
-# Enviroment files
+# Ignore virtual environments
+venv/
 .env
 
+# Ignore other common files
+.DS_Store
+.idea/
+.vscode/
+
+# Ignore the build and distribution folders (for packaging)
+build/
+dist/
+*.egg-info/

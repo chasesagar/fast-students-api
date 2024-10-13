@@ -1,4 +1,8 @@
+from typing import Optional
+
 from fastapi import APIRouter
+
+from schemas.student import CreateStudentSchema
 
 router = APIRouter(
     prefix="/students",
@@ -8,13 +12,14 @@ router = APIRouter(
 
 
 @router.get("/")
-async def get_students():
-    return {"message": "Get students"}
+async def get_students(school_id: str, org_id: Optional[str] = None):
+    return {"message": f"Get students for school {school_id}"}
 
 
 @router.post("/")
-async def create_student():
-    return {"message": "Create student"}
+async def create_student(student: CreateStudentSchema):
+    print(student)
+    return student.model_dump()
 
 
 @router.get("/{student_id}")
